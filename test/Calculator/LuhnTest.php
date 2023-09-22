@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Calculator;
 
 use Faker\Calculator\Luhn;
@@ -31,7 +33,7 @@ final class LuhnTest extends TestCase
     public function testComputeCheckDigit($partialNumber, $checkDigit): void
     {
         self::assertIsString($checkDigit);
-        self::assertEquals($checkDigit, Luhn::computeCheckDigit($partialNumber));
+        self::assertEquals($checkDigit, Luhn::computeCheckDigit((string) $partialNumber));
     }
 
     public function validatorProvider()
@@ -57,7 +59,7 @@ final class LuhnTest extends TestCase
      */
     public function testIsValid($number, $isValid): void
     {
-        self::assertEquals($isValid, Luhn::isValid($number));
+        self::assertEquals($isValid, Luhn::isValid((string) $number));
     }
 
     public function testGenerateLuhnNumberWithInvalidPrefix(): void

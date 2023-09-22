@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Base as BaseProvider;
@@ -88,7 +90,7 @@ final class BaseTest extends TestCase
 
         $result = BaseProvider::randomFloat($nbMaxDecimals, $min, $max);
 
-        $parts = explode('.', $result);
+        $parts = explode('.', (string) $result);
 
         self::assertIsFloat($result);
         self::assertGreaterThanOrEqual($min, $result);

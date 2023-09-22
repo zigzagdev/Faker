@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\ro_RO;
 
 use Faker\Provider\DateTime;
@@ -207,7 +209,7 @@ final class PersonTest extends TestCase
     protected function isValidCnp($cnp)
     {
         if (preg_match(self::TEST_CNP_REGEX, $cnp) !== false) {
-            $checkNumber = 279146358279;
+            $checkNumber = '279146358279';
 
             $checksum = 0;
 

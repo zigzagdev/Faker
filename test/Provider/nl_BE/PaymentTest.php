@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\nl_BE;
 
 use Faker\Provider\nl_BE\Payment;
@@ -32,7 +34,7 @@ final class PaymentTest extends TestCase
         self::assertStringStartsWith('0', $numbers);
 
         // Mod97 check on first 8 digits
-        $checksum = 97 - fmod(substr($numbers, 0, 8), 97);
+        $checksum = 97 - fmod((float) substr($numbers, 0, 8), 97);
         // Make sure checksum is 2 characters long
         $checksum = sprintf('%02d', $checksum);
 
